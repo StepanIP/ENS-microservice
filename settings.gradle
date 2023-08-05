@@ -2,4 +2,5 @@ rootProject.name = 'ENS-microservice'
 
 includeBuild 'eureka-server'
 includeBuild 'writer-service'
+includeBuild 'api-gateway'
 
