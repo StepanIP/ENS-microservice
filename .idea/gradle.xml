@@ -4,33 +4,13 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT">
-            <builds>
-              <build path="$PROJECT_DIR$/api-gateway" name="api-gateway">
-                <projects>
-                  <project path="$PROJECT_DIR$/api-gateway" />
-                </projects>
-              </build>
-              <build path="$PROJECT_DIR$/eureka-server" name="eureka-server">
-                <projects>
-                  <project path="$PROJECT_DIR$/eureka-server" />
-                </projects>
-              </build>
-              <build path="$PROJECT_DIR$/writer-service" name="writer-service">
-                <projects>
-                  <project path="$PROJECT_DIR$/writer-service" />
-                </projects>
-              </build>
-            </builds>
-          </compositeBuild>
-        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/api-gateway" />
+            <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/eureka-server" />
             <option value="$PROJECT_DIR$/writer-service" />
           </set>
@@ -41,6 +21,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/api-gateway" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/common" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/common" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -57,6 +45,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/writer-service" />
+            <option value="$PROJECT_DIR$/writer-service/common" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,1 +1,3 @@
 rootProject.name = 'writer-service'
+
+include 'common'
