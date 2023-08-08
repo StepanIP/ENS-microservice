@@ -1,7 +1,7 @@
 rootProject.name = 'ENS-microservice'
 
 include 'eureka-server'
-include 'writer-service'
 include 'common'
 include 'api-gateway'
+include 'writer-service'
 

@@ -5,6 +5,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import jakarta.persistence.*;
 
+import javax.validation.constraints.Pattern;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,7 +27,8 @@ public class Notification {
             }
     )
     private long id;
-
+    @Pattern(regexp = "[A-Z][a-z]+",
+            message = "Must start with a capital letter followed by one or more lowercase letters")
     @Column(name = "name", nullable = false)
     private String name;
 
