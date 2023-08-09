@@ -1,7 +1,8 @@
 package com.example.common.transformer;
 
-import com.example.emergencynotificationsystem.model.Notification;
-import com.example.emergencynotificationsystem.request.NotificationRequest;
+
+import com.example.common.request.NotificationRequest;
+import com.example.common.model.Notification;
 
 public class NotificationTransformer {
 

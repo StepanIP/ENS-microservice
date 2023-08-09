@@ -1,8 +1,8 @@
 package com.example.common.transformer;
 
-import com.example.emergencynotificationsystem.model.Role;
-import com.example.emergencynotificationsystem.model.User;
-import com.example.emergencynotificationsystem.request.UserRequest;
+import com.example.common.request.UserRequest;
+import com.example.common.model.Role;
+import com.example.common.model.User;
 
 public class UserTransformer {
 

@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/api-gateway" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/eureka-server" />
+            <option value="$PROJECT_DIR$/security-service" />
+            <option value="$PROJECT_DIR$/sender-service" />
             <option value="$PROJECT_DIR$/writer-service" />
           </set>
         </option>
