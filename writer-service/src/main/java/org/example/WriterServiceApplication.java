@@ -6,7 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class WriterServiceApplication {
+class WriterServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WriterServiceApplication.class, args);
