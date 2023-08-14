@@ -3,8 +3,8 @@ package com.example.common.controller;
 import com.example.common.model.Role;
 import com.example.common.request.UserRequest;
 import com.example.common.service.RoleService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -27,8 +27,7 @@ public class ControllerTestClass {
     private MockMvc mockMvc;
 
     @BeforeEach
-    @SneakyThrows
-    public void addAuthUser(){
+    public void addAuthUser() throws Exception {
         Role role = new Role();
         role.setName("USER");
         roleService.create(role);
@@ -41,8 +40,7 @@ public class ControllerTestClass {
                 .content(requestBody));
     }
 
-    @SneakyThrows
-    public static String asJsonString(final Object obj) {
+    public static String asJsonString(final Object obj) throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(obj);
     }
 }
