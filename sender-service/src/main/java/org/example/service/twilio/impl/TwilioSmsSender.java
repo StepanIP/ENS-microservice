@@ -3,7 +3,7 @@ package org.example.service.twilio.impl;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.rest.api.v2010.account.MessageCreator;
 import com.twilio.type.PhoneNumber;
-import org.example.service.configuration.twilio.TwilioConfiguration;
+import org.example.configuration.twilio.TwilioConfiguration;
 import org.example.service.email.EmailSenderService;
 import org.example.service.twilio.SmsSender;
 import org.slf4j.Logger;

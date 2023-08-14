@@ -1,4 +1,4 @@
-package org.example.service.configuration;
+package org.example.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

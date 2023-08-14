@@ -1,4 +1,4 @@
-package org.example.service.configuration.twilio;
+package org.example.configuration.twilio;
 
 import com.twilio.Twilio;
 import org.slf4j.Logger;

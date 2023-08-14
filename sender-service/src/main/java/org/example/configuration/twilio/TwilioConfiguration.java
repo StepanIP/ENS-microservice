@@ -1,4 +1,4 @@
-package org.example.service.configuration.twilio;
+package org.example.configuration.twilio;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

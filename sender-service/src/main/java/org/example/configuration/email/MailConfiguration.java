@@ -1,4 +1,4 @@
-package org.example.service.configuration.email;
+package org.example.configuration.email;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

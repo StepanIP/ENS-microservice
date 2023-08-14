@@ -1,10 +1,10 @@
-package org.example.service.controller;
+package org.example.controller;
 
 import com.example.common.repository.DataRequest;
 import com.example.common.service.ContactService;
 import com.example.common.service.NotificationService;
+import org.example.service.DataRequestService;
 import org.example.service.email.EmailSenderService;
-import org.example.service.service.DataRequestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

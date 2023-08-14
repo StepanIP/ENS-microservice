@@ -1,6 +1,6 @@
 package org.example.service.email.impl;
 
-import org.example.service.configuration.email.MailConfiguration;
+import org.example.configuration.email.MailConfiguration;
 import org.example.service.email.EmailSenderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

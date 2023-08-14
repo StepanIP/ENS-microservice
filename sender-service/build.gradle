@@ -12,14 +12,16 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
-    implementation 'org.springframework.boot:spring-boot-starter-mail'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    implementation 'com.twilio.sdk:twilio:9.8.0'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
+    implementation 'com.twilio.sdk:twilio:9.8.0'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+
     implementation project(':security-service')
+    testImplementation project(':security-service')
 }
 
 ext {

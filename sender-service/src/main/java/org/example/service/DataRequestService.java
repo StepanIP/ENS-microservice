@@ -1,4 +1,4 @@
-package org.example.service.service;
+package org.example.service;
 
 import com.example.common.repository.DataRequest;
 import org.example.service.email.EmailSenderService;
