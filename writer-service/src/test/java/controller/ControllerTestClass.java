@@ -1,8 +1,6 @@
 package controller;
 
 import com.example.common.CommonApplication;
-import com.example.common.model.Role;
-import com.example.common.service.RoleService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.dto.request.SignUpRequest;
@@ -22,21 +20,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 public class ControllerTestClass {
 
     @Autowired
-    private RoleService roleService;
-
-    @Autowired
     private MockMvc mockMvc;
 
     @BeforeEach
     public void addAuthUser() throws Exception {
-        Role role = new Role();
-        role.setName("USER");
-        roleService.create(role);
 
         SignUpRequest loginRequest = SignUpRequest.builder()
                 .firstName("Test")
                 .lastName("Test")
-                .email("test@gmail.com")
+                .username("test@gmail.com")
                 .password("5b2h1k")
                 .build();
 

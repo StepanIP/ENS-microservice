@@ -4,13 +4,13 @@ import com.example.common.CommonApplication;
 import com.example.common.model.Contact;
 import com.example.common.request.ContactRequest;
 import com.example.common.service.ContactService;
-import com.example.common.service.RoleService;
 import com.example.common.service.UserService;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.example.SecurityServiceApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,7 +20,6 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
@@ -33,7 +32,7 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = CommonApplication.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = {CommonApplication.class, SecurityServiceApplication.class})
 @AutoConfigureMockMvc
 @Transactional
 public class ContactControllerTest extends ControllerTestClass{
@@ -47,9 +46,6 @@ public class ContactControllerTest extends ControllerTestClass{
     @Autowired
     UserService userService;
 
-    @Autowired
-    private RoleService roleService;
-
     @Test
     @WithMockUser(username = "test@gmail.com", password = "5b2h1k", roles = "USER")
     public void testAddContacts_ValidFile() throws Exception {
@@ -59,7 +55,7 @@ public class ContactControllerTest extends ControllerTestClass{
             MockMultipartFile file = new MockMultipartFile("file", "users.xlsx",
                     MediaType.MULTIPART_FORM_DATA_VALUE, inputStream);
 
-            MvcResult result = mockMvc.perform(multipart("/ENS-Ukraine/contact/add")
+            mockMvc.perform(multipart("/ENS-Ukraine/contact/add")
                             .file(file))
                     .andExpect(status().isOk())
                     .andReturn();

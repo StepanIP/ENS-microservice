@@ -25,6 +25,7 @@ dependencies {
 
     //implementation project(':common')
     implementation project(':security-service')
+    testImplementation project(':security-service')
 }
 
 ext {
