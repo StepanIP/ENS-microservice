@@ -80,11 +80,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User readByEmail(String email) {
-        LOGGER.info("Fetching user by email: {}", email);
+        LOGGER.info("Fetching user by username: {}", email);
         User user = userRepository.findByEmail(email);
         if (user == null) {
-            LOGGER.error("User with email {} not found", email);
-            throw new EntityNotFoundException("User with email " + email + " not found");
+            LOGGER.error("User with username {} not found", email);
+            throw new EntityNotFoundException("User with username " + email + " not found");
         }
         return user;
     }

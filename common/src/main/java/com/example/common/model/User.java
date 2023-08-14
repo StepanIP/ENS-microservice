@@ -41,11 +41,11 @@ public class User implements UserDetails {
     private String surname;
 
     @Pattern(regexp = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
-            message = "Invalid email format")
+            message = "Invalid username format")
     private String email;
 
-    @Pattern(regexp = "(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}",
-            message = "Must be minimum 6 characters, at least one letter and one number")
+//    @Pattern(regexp = "(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}",
+//            message = "Must be minimum 6 characters, at least one letter and one number")
     private String password;
 
     @ManyToOne
@@ -153,7 +153,7 @@ public class User implements UserDetails {
                "id=" + id +
                ", name='" + name + '\'' +
                ", surname='" + surname + '\'' +
-               ", email='" + email + '\'' +
+               ", username='" + email + '\'' +
                ", password='" + password + '\'' +
                ", role=" + role +
                '}';

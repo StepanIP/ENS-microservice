@@ -26,7 +26,7 @@ public class DataRequestService {
                 LOGGER.info("Sending SMS to contact: {}", contact);
                 smsSender.sendMessage(contact, dataRequest.getMessage());
             } else {
-                LOGGER.info("Sending email to contact: {}", contact);
+                LOGGER.info("Sending username to contact: {}", contact);
                 emailSender.sendEmail(contact, "This is important", dataRequest.getMessage());
             }
         }

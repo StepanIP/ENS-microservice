@@ -19,7 +19,7 @@ dependencies {
     implementation 'com.twilio.sdk:twilio:9.8.0'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
-    implementation project(':common')
+    implementation project(':security-service')
 }
 
 ext {

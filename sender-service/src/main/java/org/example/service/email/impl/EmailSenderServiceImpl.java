@@ -31,7 +31,7 @@ public class EmailSenderServiceImpl implements EmailSenderService {
 
     @Override
     public void sendEmail(String to, String subject, String message) {
-        LOGGER.info("Sending email to: {}, subject: {}", to, subject);
+        LOGGER.info("Sending username to: {}, subject: {}", to, subject);
 
         if (mailConfiguration.getUsername() == null) {
             LOGGER.error("Error, Sender cannot be null");

@@ -25,7 +25,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public JwtAuthenticationResponse signup(SignUpRequest request) {
         User user = User.builder().name(request.getFirstName()).surname(request.getLastName())
-                .email(request.getEmail()).password(passwordEncoder.encode(request.getPassword()))
+                .email(request.getUsername()).password(passwordEncoder.encode(request.getPassword()))
                 .role(roleRepository.findByName("USER").get()).build();
         userRepository.save(user);
         var jwt = jwtService.generateToken(user);
@@ -35,8 +35,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public JwtAuthenticationResponse signin(SigninRequest request) {
         authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
-        var user = userRepository.findByEmail(request.getEmail());
+                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+        var user = userRepository.findByEmail(request.getUsername());
         var jwt = jwtService.generateToken(user);
         return JwtAuthenticationResponse.builder().token(jwt).build();
     }
