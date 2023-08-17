@@ -1,7 +1,6 @@
 package com.example.common.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.validation.constraints.Pattern;
 import java.util.Objects;
@@ -10,16 +9,8 @@ import java.util.Objects;
 @Table(name = "notifications")
 public class Notification {
     @Id
-    @GeneratedValue(generator = "sequence-generator")
-    @GenericGenerator(
-            name = "sequence-generator",
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "notifications_id_seq"),
-                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "10"),
-                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
-            }
-    )
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @SequenceGenerator(name = "notifications_id_seq")
     private long id;
     @Pattern(regexp = "[A-Z][a-z]+",
             message = "Must start with a capital letter followed by one or more lowercase letters")

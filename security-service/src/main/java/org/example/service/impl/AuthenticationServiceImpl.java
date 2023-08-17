@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.service.impl;
 
 import com.example.common.model.User;
 import com.example.common.repository.RoleRepository;
@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.example.dto.request.SignUpRequest;
 import org.example.dto.request.SigninRequest;
 import org.example.dto.response.JwtAuthenticationResponse;
+import org.example.service.AuthenticationService;
+import org.example.service.JwtService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;

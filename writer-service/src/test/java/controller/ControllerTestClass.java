@@ -1,6 +1,8 @@
 package controller;
 
 import com.example.common.CommonApplication;
+import com.example.common.model.Role;
+import com.example.common.service.RoleService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.dto.request.SignUpRequest;
@@ -22,8 +24,14 @@ public class ControllerTestClass {
     @Autowired
     private MockMvc mockMvc;
 
+    @Autowired
+    private RoleService roleService;
+
     @BeforeEach
     public void addAuthUser() throws Exception {
+        Role newUserRole = new Role();
+        newUserRole.setName("USER");
+        roleService.create(newUserRole);
 
         SignUpRequest loginRequest = SignUpRequest.builder()
                 .firstName("Test")

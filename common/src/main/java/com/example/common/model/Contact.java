@@ -1,7 +1,6 @@
 package com.example.common.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Objects;
 
@@ -11,16 +10,8 @@ import java.util.Objects;
 public class Contact {
 
     @Id
-    @GeneratedValue(generator = "sequence-generator")
-    @GenericGenerator(
-            name = "sequence-generator",
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "users_id_seq"),
-                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "10"),
-                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
-            }
-    )
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @SequenceGenerator(name = "contacts_id_seq")
     private long id;
 
     private String contact;

@@ -36,7 +36,7 @@ public class DataBaseConnectionTest {
         Role role = new Role();
         role.setName("TEST");
         roleRepository.save(role);
-        User user = new User(1L,"Test","Test","test@gmail.com", "5b2h1k" ,roleRepository.findById(role.getId()).get());
+        User user = new User("Test","Test","test@gmail.com", "5b2h1k" ,roleRepository.findById(role.getId()).get());
         userRepository.save(user);
 
         Contact contact = new Contact();

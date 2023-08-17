@@ -3,9 +3,12 @@ package controller;
 import com.example.common.CommonApplication;
 import com.example.common.model.Contact;
 import com.example.common.model.Notification;
+import com.example.common.model.Role;
+import com.example.common.model.User;
 import com.example.common.repository.DataRequest;
 import com.example.common.service.ContactService;
 import com.example.common.service.NotificationService;
+import com.example.common.service.RoleService;
 import com.example.common.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.SecurityServiceApplication;
@@ -19,6 +22,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -54,16 +58,26 @@ public class HomeControllerTest extends ControllerTestClass{
     @Autowired
     UserService userService;
 
+    @Autowired
+    RoleService roleService;
+
+
     @Test
+    @Transactional
     @WithMockUser(username = "test@gmail.com", password = "5b2h1k", roles = "USER")
     public void homeControllerTest_Get() throws Exception {
         List<Notification> notifications = Arrays.asList(
                 new Notification("1", "Notification 1"),
                 new Notification("2", "Notification 2")
         );
+
+        Role role = new Role("USER");
+        roleService.create(role);
+        User user =  new User("Test", "Test", "test1@gmail.com", "5b2h1k1", role);
+
         List<Contact> contacts = Arrays.asList(
-                new Contact(mailConfiguration.getUsername(), userService.readById(1)),
-                new Contact(mailConfiguration.getUsername(), userService.readById(2))
+                new Contact(mailConfiguration.getUsername(),user),
+                new Contact(mailConfiguration.getUsername(),user)
         );
 
         Map<String, Object> expectedResponse = new HashMap<>();

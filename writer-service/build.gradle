@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.1.2'
     id 'io.spring.dependency-management' version '1.1.2'
+    id 'jacoco'
 }
 
 group = 'org.example'
@@ -23,7 +24,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 
-    //implementation project(':common')
     implementation project(':security-service')
     testImplementation project(':security-service')
 }

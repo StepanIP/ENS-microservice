@@ -3,7 +3,6 @@ package com.example.common.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -18,16 +17,8 @@ import java.util.Objects;
 @AllArgsConstructor
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(generator = "sequence-generator")
-    @GenericGenerator(
-            name = "sequence-generator",
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "users_id_seq"),
-                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "10"),
-                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
-            }
-    )
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @SequenceGenerator(name = "users_id_seq")
     private long id;
 
     @Pattern(regexp = "[A-Z][a-z]+",
@@ -53,6 +44,14 @@ public class User implements UserDetails {
     private Role role;
 
     public User() {
+    }
+
+    public User(String name, String surname, String email, String password, Role role) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
     }
 
     @Override

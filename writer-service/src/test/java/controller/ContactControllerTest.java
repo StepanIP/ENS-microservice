@@ -130,22 +130,23 @@ public class ContactControllerTest extends ControllerTestClass{
     private File createTempExcelFile() throws Exception {
         File tempFile = File.createTempFile("file", ".xlsx");
         try (FileOutputStream fileOutputStream = new FileOutputStream(tempFile)) {
-            Workbook workbook = new XSSFWorkbook();
-            Sheet sheet = workbook.createSheet("Users");
+            try (Workbook workbook = new XSSFWorkbook()) {
+                Sheet sheet = workbook.createSheet("Users");
 
-            Row headerRow = sheet.createRow(0);
-            Cell headerCell1 = headerRow.createCell(0);
-            headerCell1.setCellValue("Email");
+                Row headerRow = sheet.createRow(0);
+                Cell headerCell1 = headerRow.createCell(0);
+                headerCell1.setCellValue("Email");
 
-            Row row1 = sheet.createRow(1);
-            Cell cell1 = row1.createCell(0);
-            cell1.setCellValue("john.doe@example.com");
+                Row row1 = sheet.createRow(1);
+                Cell cell1 = row1.createCell(0);
+                cell1.setCellValue("john.doe@example.com");
 
-            Row row2 = sheet.createRow(2);
-            Cell cell4 = row2.createCell(0);
-            cell4.setCellValue("jane.smith@example.com");
+                Row row2 = sheet.createRow(2);
+                Cell cell4 = row2.createCell(0);
+                cell4.setCellValue("jane.smith@example.com");
 
-            workbook.write(fileOutputStream);
+                workbook.write(fileOutputStream);
+            }
         }
         return tempFile;
     }

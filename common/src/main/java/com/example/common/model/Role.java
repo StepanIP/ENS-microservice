@@ -10,7 +10,8 @@ import java.util.Objects;
 @Table(name = "roles")
 public class Role implements GrantedAuthority {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @SequenceGenerator(name = "roles_id_seq")
     private Long id;
 
     @NotBlank(message = "The 'name' cannot be empty")
@@ -29,8 +30,7 @@ public class Role implements GrantedAuthority {
     public Role() {
     }
 
-    public Role(Long id, String name) {
-        this.id = id;
+    public Role(String name) {
         this.name = name;
     }
 
