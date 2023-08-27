@@ -15,7 +15,7 @@ public class SendRequest {
 
     public static List<SendRequest> transformToSendRequest(DataRequest dataRequest){
         List<SendRequest> sendRequests = new ArrayList<>();
-        for(String contact :  dataRequest.getContacts()){
+        for(String contact : dataRequest.getContacts()){
             sendRequests.add(new SendRequest(contact, dataRequest.getMessage()));
         }
         return sendRequests;

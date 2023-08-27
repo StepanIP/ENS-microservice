@@ -56,6 +56,8 @@ public class TwilioSmsSenderTest {
         spySmsSender.sendMessage(VALID_PHONE_NUMBER, MESSAGE);
 
         verify(mailSender, never()).send(any(MimeMessage.class));
+        verify(messageCreator, times(1)).create();
+        verify(twilioSmsSender, times(1)).isPhoneNumberValid("+12344054366");
         verify(spySmsSender, times(1)).sendMessage(VALID_PHONE_NUMBER, MESSAGE);
     }
 
