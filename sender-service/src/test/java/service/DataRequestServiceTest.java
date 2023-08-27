@@ -1,6 +1,6 @@
 package service;
 
-import com.example.common.repository.DataRequest;
+import com.example.common.request.DataRequest;
 import org.example.SenderServiceApplication;
 import org.example.service.email.EmailSenderService;
 import org.example.service.DataRequestService;
