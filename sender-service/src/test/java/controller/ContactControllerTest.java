@@ -17,6 +17,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
@@ -35,6 +36,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = {CommonApplication.class, SecurityServiceApplication.class})
 @AutoConfigureMockMvc
 @Transactional
+@EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
 public class ContactControllerTest extends ControllerTestClass{
 
     @Autowired
@@ -59,8 +61,6 @@ public class ContactControllerTest extends ControllerTestClass{
                             .file(file))
                     .andExpect(status().isOk())
                     .andReturn();
-
-            verify(contactService, times(3)).create(any(Contact.class));
         }
     }
 

@@ -8,6 +8,7 @@ import org.example.kafka.SenderProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,9 @@ public class HomeController {
     @Autowired
     private SenderProducer senderProducer;
 
+    @Value("${spring.kafka.topic.partitions}")
+    private Integer partitions;
+
     @GetMapping
     public ResponseEntity<?> home() {
         LOGGER.info("Received request to get home data.");
@@ -46,29 +50,17 @@ public class HomeController {
     @PostMapping
     public void sendMessage(@Valid @RequestBody DataRequest dataRequest) {
         LOGGER.info("Received a data request message: {}", dataRequest);
-
         List<SendRequest> sendRequestList = SendRequest.transformToSendRequest(dataRequest);
-
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(partitions);
 
         for (SendRequest sendRequest : sendRequestList) {
             executorService.submit(() -> {
                 long threadId = Thread.currentThread().getId();
                 LOGGER.info("Thread {} is sending a message: {}", threadId, sendRequest);
-
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    LOGGER.error("Thread {} was interrupted.", threadId);
-                    Thread.currentThread().interrupt();
-                }
-
                 senderProducer.sendMessage(sendRequest);
-
                 LOGGER.info("Thread {} sent the message successfully.", threadId);
             });
         }
-
         executorService.shutdown();
     }
 }

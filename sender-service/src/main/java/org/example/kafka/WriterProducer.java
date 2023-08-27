@@ -34,4 +34,7 @@ public class WriterProducer {
         kafkaTemplate.send(message);
     }
 
+    public KafkaTemplate<String, WriterRequest> getKafkaTemplate() {
+        return kafkaTemplate;
+    }
 }

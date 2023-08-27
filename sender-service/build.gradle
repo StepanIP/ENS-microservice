@@ -34,6 +34,7 @@ dependencies {
 
     implementation project(':security-service')
     testImplementation project(':security-service')
+    testImplementation 'junit:junit:4.13.1'
 }
 
 ext {
