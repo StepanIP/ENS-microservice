@@ -18,6 +18,12 @@ public class TwilioSmsSender implements SmsSender {
 
     private final TwilioConfiguration twilioConfiguration;
 
+    private MessageCreator creator;
+
+    public MessageCreator getCreator() {
+        return creator;
+    }
+
     public TwilioConfiguration getTwilioConfiguration() {
         return twilioConfiguration;
     }
@@ -37,7 +43,7 @@ public class TwilioSmsSender implements SmsSender {
         if (isPhoneNumberValid(phoneNumber)) {
             PhoneNumber to = new PhoneNumber(phoneNumber);
             PhoneNumber from = new PhoneNumber(twilioConfiguration.getPhoneNumber());
-            MessageCreator creator = Message.creator(to, from, message);
+            creator = Message.creator(to, from, message);
             creator.create();
 
             LOGGER.info("SMS sent successfully.");

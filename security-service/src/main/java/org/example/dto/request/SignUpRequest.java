@@ -1,19 +1,14 @@
 package org.example.dto.request;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
-@Setter
+@AllArgsConstructor
+@EqualsAndHashCode
 @Builder
 public class SignUpRequest {
-
     String firstName;
     String lastName;
     String username;
     String password;
-
-
-
 }

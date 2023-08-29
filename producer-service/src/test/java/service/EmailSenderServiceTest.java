@@ -1,6 +1,6 @@
 package service;
 
-import org.example.SenderServiceApplication;
+import org.example.ProducerServiceApplication;
 import org.example.configuration.email.MailConfiguration;
 import org.example.service.email.impl.EmailSenderServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes = SenderServiceApplication.class)
+@SpringBootTest(classes = ProducerServiceApplication.class)
 @ExtendWith(MockitoExtension.class)
 public class EmailSenderServiceTest {
     @Mock

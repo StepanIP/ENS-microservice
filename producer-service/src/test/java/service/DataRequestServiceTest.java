@@ -1,7 +1,7 @@
 package service;
 
 import com.example.common.request.DataRequest;
-import org.example.SenderServiceApplication;
+import org.example.ProducerServiceApplication;
 import org.example.service.email.EmailSenderService;
 import org.example.service.DataRequestService;
 import org.example.service.twilio.SmsSender;
@@ -18,7 +18,7 @@ import java.util.Collections;
 
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes = SenderServiceApplication.class)
+@SpringBootTest(classes = ProducerServiceApplication.class)
 @ExtendWith(MockitoExtension.class)
 class DataRequestServiceTest {
 

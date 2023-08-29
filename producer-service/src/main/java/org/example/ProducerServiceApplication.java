@@ -2,12 +2,14 @@ package org.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-public class ConsumerSenderServiceApplication {
+@EnableDiscoveryClient
+public class ProducerServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerSenderServiceApplication.class, args);
+        SpringApplication.run(ProducerServiceApplication.class, args);
     }
 
 }
