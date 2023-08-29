@@ -59,6 +59,21 @@ The `api-gateway` serves as an entry point to the microservices architecture, ro
 
 The `eureka-server` acts as a service registry and discovery server, allowing microservices to locate and communicate with each other easily.
 
+## Test coverage
+
+### security-service
+
+![security-service Test coverage](images/security-service-test-coverage.png)
+
+### producer-service
+
+![producer-service Test coverage](images/producer-service-test-coverage.png)
+
+### common-service
+
+![common-service Test coverage](images/common-service-test-coverage.png)
+
+
 ## Getting Started
 
 Follow these steps to set up and run the ENS system locally.
