@@ -2,8 +2,10 @@
 
 ENS (Emergency Notification System) is an advanced microservice-based emergency notification and messaging system designed to provide efficient communication during critical situations.
 
+This project was initially developed using Maven and REST API if you seek for more traditionals technologies you can find it [here](https://github.com/StepanIP/emergency-notification-system).
 
-ENS is built upon a microservices architecture that was initially developed using Maven and REST API. This architecture empowers users to create accounts, devise notification templates, and dispatch notifications complete with attachments. As the system migrated to Gradle and a microservices-based structure, it significantly bolstered its scalability, enabling large-scale notification distribution and load balancing. The incorporation of a dependable delivery mechanism ensures that critical messages are reliably conveyed to recipients. The system optimizes real-time communication among services through the Kafka message broker, while an API gateway governs traffic and fortifies security measures.
+This system is built upon a microservices architecture. This architecture empowers users to create accounts, devise notification templates, and dispatch notifications complete with attachments. As the system migrated to Gradle and a microservices-based structure, it significantly bolstered its scalability, enabling large-scale notification distribution and load balancing. The incorporation of a dependable delivery mechanism ensures that critical messages are reliably conveyed to recipients. The system optimizes real-time communication among services through the Kafka message broker, while an API gateway governs traffic and fortifies security measures.
+
 ## Base Features
 
 - Accepts contact data in Excel format for easy import.
@@ -19,7 +21,7 @@ ENS is built upon a microservices architecture that was initially developed usin
 
 ## Architecture
 
-![ENS Architecture](architecture-diagram.png)
+![ENS Architecture](images/architecture-diagram.png)
 
 ## API Documentation
 
@@ -28,21 +30,22 @@ ENS is built upon a microservices architecture that was initially developed usin
 The `security-service` manages authentication and authorization for the ENS system. It provides user account creation, authentication, and access control to protected resources.
 
 Endpoints:
-![security-service Endpoints](security-service-endpoints.png)
+
+![security-service Endpoints](images/security-service-endpoints.png)
 
 ### producer-service
 
 The `producer-service` is responsible for processing notifications and sending them to the message broker for further distribution. It handles the creation of notifications and their subsequent submission to the Kafka message broker.
 
 Endpoints:
-![producer-service Endpoints](producer-service-endpoints.png)
+
+![producer-service Endpoints](images/producer-service-contact-endpoints.png)
+
+![producer-service Endpoints](images/producer-service-home-endpoints.png)
 
 ### consumer-service
 
 The `consumer-service` subscribes to the Kafka message broker to receive notifications and process them for delivery. It ensures that notifications are reliably delivered to their intended recipients.
-
-Endpoints:
-![consumer-service Endpoints](consumer-service-endpoints.png)
 
 ### common-service
 
