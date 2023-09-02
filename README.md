@@ -72,17 +72,3 @@ The `eureka-server` acts as a service registry and discovery server, allowing mi
 ### common-service
 
 ![common-service Test coverage](images/common-service-test-coverage.png)
-
-
-## Getting Started
-
-Follow these steps to set up and run the ENS system locally.
-
-1. Clone this repository.
-2. Configure the necessary environment variables.
-3. Install the required dependencies.
-4. Run the microservices using Docker Compose.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
